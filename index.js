@@ -19,10 +19,9 @@ System.register(["./application.js"], function (_export, _context) {
       topLevelImport('cc').then(function (engine) {
         return application.init(engine);
       }).then(function () {
-        setTimeout(function () { var status = document.getElementById('PreviewStatus'); if (status && status.textContent.indexOf('失败') < 0) status.style.display = 'none'; }, 2000);
         return application.start();
       })["catch"](function (err) {
-        window.previewFailure(err);
+        console.error(err);
       });
     }
   };

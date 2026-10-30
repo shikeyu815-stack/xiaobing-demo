@@ -38,7 +38,6 @@
 
 </head>
 <body>
-  <div id="PreviewStatus" style="position:fixed;z-index:9999;inset:0;display:flex;align-items:center;justify-content:center;background:#292923;color:#f4e9c4;font:18px/1.7 sans-serif">正在加载游戏…</div>
   <div id="GameDiv" cc_exact_fit_screen="true">
       <div id="Cocos3dGameContainer">
         <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
@@ -58,8 +57,7 @@
 <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
 
 <script>
-    window.previewFailure = function(err) { var status = document.getElementById('PreviewStatus'); if (status) status.textContent = '加载失败：' + (err && err.message ? err.message : String(err)); console.error(err); };
-    System.import('./index.js').catch(window.previewFailure)
+    System.import('./index.js').catch(function(err) { console.error(err); })
 </script>
 
 </body>
